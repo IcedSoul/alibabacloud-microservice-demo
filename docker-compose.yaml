@@ -9,7 +9,9 @@ services:
     - MODE=standalone
     ports:
     - "8848:8848"
+
   frontend:
+    build: ./src/frontend
     image: frontend:1.0.0-SNAPSHOT
     container_name: frontend
     environment:
@@ -19,17 +21,75 @@ services:
     - "8080:8080"
     depends_on:
       - "nacos"
+
   cartservice:
+    build: ./src/cartservice
     image: cartservice:1.0.0-SNAPSHOT
     container_name: cartservice
     environment:
     - dubbo.registry.address=nacos://nacos:8848
     depends_on:
       - "nacos"
-  productservice:
-    image: productservice:1.0.0-SNAPSHOT
-    container_name: productservice
+
+  adservice:
+    build: ./src/adservice
+    image: adservice:1.0.0-SNAPSHOT
+    container_name: adservice
     environment:
     - spring.cloud.nacos.discovery.server-addr=nacos:8848
+    depends_on:
+      - "nacos"
+
+  checkoutservice:
+    build: ./src/checkoutservice
+    image: checkoutservice:1.0.0-SNAPSHOT
+    container_name: checkoutservice
+    environment:
+      - spring.cloud.nacos.discovery.server-addr=nacos:8848
+    depends_on:
+      - "nacos"
+
+  currencyservice:
+    build: ./src/productservice
+    image: currencyservice:1.0.0-SNAPSHOT
+    container_name: currencyservice
+    environment:
+      - spring.cloud.nacos.discovery.server-addr=nacos:8848
+    depends_on:
+      - "nacos"
+
+  emailservice:
+    build: ./src/emailservice
+    image: emailservice:1.0.0-SNAPSHOT
+    container_name: emailservice
+    environment:
+      - spring.cloud.nacos.discovery.server-addr=nacos:8848
+    depends_on:
+      - "nacos"
+
+  paymentservice:
+    build: ./src/paymentservice
+    image: paymentservice:1.0.0-SNAPSHOT
+    container_name: paymentservice
+    environment:
+      - spring.cloud.nacos.discovery.server-addr=nacos:8848
+    depends_on:
+      - "nacos"
+
+  recomendationservice:
+    build: ./src/recomendationservice
+    image: recomendationservice:1.0.0-SNAPSHOT
+    container_name: recomendationservice
+    environment:
+      - spring.cloud.nacos.discovery.server-addr=nacos:8848
+    depends_on:
+      - "nacos"
+
+  shippingservice:
+    build: ./src/shippingservice
+    image: shippingservice:1.0.0-SNAPSHOT
+    container_name: shippingservice
+    environment:
+      - spring.cloud.nacos.discovery.server-addr=nacos:8848
     depends_on:
       - "nacos"

@@ -36,6 +36,11 @@
                 <version>1.0.0-SNAPSHOT</version>
             </dependency>
             <dependency>
+                <groupId>com.alibabacloud.hipstershop</groupId>
+                <artifactId>checkoutservice-api</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
                 <groupId>org.apache.dubbo</groupId>
                 <artifactId>dubbo</artifactId>
                 <version>${dubbo.version}</version>
@@ -102,6 +107,10 @@
         <dependency>
             <groupId>com.alibabacloud.hipstershop</groupId>
             <artifactId>cartservice-interface</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibabacloud.hipstershop</groupId>
+            <artifactId>checkoutservice-api</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.dubbo</groupId>

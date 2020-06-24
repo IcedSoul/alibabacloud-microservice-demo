@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="header.html :: commonHead"></head>
+
+<body>
+<header th:replace="header.html :: pageHeader"></header>
+<main role="main">
+    <div class="py-5">
+        <div class="container bg-light py-3 px-lg-5 py-lg-5">
+            <div class="col align-middle">
+                Your order is complete!
+            </div>
+            <div class="col align-middle">
+                Order ID:
+                <strong th:text="${order.orderID}"></strong>
+            </div>
+            <div class="col align-middle">
+                Shipping ID:
+                <strong th:text="${order.shipID}"></strong>
+            </div>
+            <div class="col align-middle">
+                Ship Cost:
+                <strong th:text="${order.shipCost}"></strong>
+            </div>
+            <div class="col align-middle">
+                Product Cost:
+                <strong th:text="${order.productCost}"></strong>
+            </div>
+            <div class="col align-middle">
+                Total Cost:
+                <strong th:text="${order.totalCost}"></strong>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer th:replace="footer.html :: pageFooter"></footer>
+<script th:replace="footer.html :: footerScript"></script>
+</body>
+</html>
