@@ -11,10 +11,12 @@ import java.util.List;
  * @author xiaofeng.gxf
  * @date 2020/6/29
  */
+
 @DubboComponentScan
 @RefreshScope
-@Service(version = "0.0.1")
+@Service(version = "1.0.0")
 public class ProductServiceImpl implements ProductService {
+
     @Override
     public List<ProductItem> confirmInventory(List<ProductItem> checkoutProductItems) {
         for(ProductItem item: checkoutProductItems){
