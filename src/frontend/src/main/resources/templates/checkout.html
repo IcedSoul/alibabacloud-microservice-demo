@@ -7,28 +7,32 @@
 <main role="main">
     <div class="py-5">
         <div class="container bg-light py-3 px-lg-5 py-lg-5">
-            <div class="col align-middle">
+            <h2 class="col align-middle text-center">
                 Your order is complete!
-            </div>
-            <div class="col align-middle">
+            </h2>
+            <div class="col align-middle text-center pt-4">
                 Order ID:
-                <strong th:text="${order.orderID}"></strong>
+                <strong th:text="${order.orderId}"></strong>
             </div>
-            <div class="col align-middle">
+            <div class="col align-middle text-center pt-2">
                 Shipping ID:
-                <strong th:text="${order.shipID}"></strong>
+                <strong th:text="${order.shipId}"></strong>
             </div>
-            <div class="col align-middle">
+            <div class="col align-middle text-center pt-2">
                 Ship Cost:
                 <strong th:text="${order.shipCost}"></strong>
             </div>
-            <div class="col align-middle">
+            <div class="col align-middle text-center pt-2">
                 Product Cost:
-                <strong th:text="${order.productCost}"></strong>
+                <strong th:text="${order.productCost} "></strong>
             </div>
-            <div class="col align-middle">
+            <div class="col align-middle text-center pt-2">
                 Total Cost:
                 <strong th:text="${order.totalCost}"></strong>
+            </div>
+
+            <div class="col align-middle pt-4">
+                <a class="btn btn-info btn-lg ml-3" role="button">Keep Browsing</a>
             </div>
         </div>
     </div>

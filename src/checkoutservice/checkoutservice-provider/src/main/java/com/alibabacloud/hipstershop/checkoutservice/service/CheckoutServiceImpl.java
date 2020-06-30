@@ -1,21 +1,72 @@
 package com.alibabacloud.hipstershop.checkoutservice.service;
 
+import com.alibabacloud.hipstershop.CartItem;
+import com.alibabacloud.hipstershop.CartService;
 import com.alibabacloud.hipstershop.checkoutserviceapi.domain.Order;
 import com.alibabacloud.hipstershop.checkoutserviceapi.service.CheckoutService;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
+import com.alibabacloud.hipstershop.domain.ProductItem;
+import com.alibabacloud.hipstershop.service.ProductService;
+import org.apache.dubbo.config.annotation.Reference;
 import org.apache.dubbo.config.annotation.Service;
+import org.apache.dubbo.config.spring.context.annotation.DubboComponentScan;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 /**
  * @author xiaofeng.gxf
  * @date 2020/6/24
  */
+@DubboComponentScan
 @RefreshScope
-@Service(version = "1.0.0")
+@Service(version = "0.0.1")
 public class CheckoutServiceImpl implements CheckoutService {
+
+    @Reference(version = "1.0.0")
+    private CartService cartService;
+
+    @Reference(version = "1.0.0")
+    private ProductService productService;
+
     @Override
     public Order checkout(String email, String streetAddress, String zipCode, String city, String state,
                           String creditCardNumber, int creditCardExpirationMonth, String creditCardCvv, String userId) {
-        //@TODO continue
-        return null;
+        Order order = null;
+        try {
+            //生成uuid
+            UUID uuid = UUID.randomUUID();
+            order = new Order();
+            order.setOrderId(uuid.toString());
+            //获取购物车商品
+            List<CartItem> items = cartService.cleanCartItems(userId);
+            List<ProductItem> productItems = new ArrayList<>();
+            for(CartItem item : items){
+                productItems.add(new ProductItem(item.getProductID(), item.getQuantity(), order.getOrderId()));
+            }
+            //校验库存
+            List<ProductItem> lockedProductItems = productService.confirmInventory(productItems);
+
+            //计算价格
+
+
+            order.setShipId("123");
+            order.setProductCost(123.0);
+            order.setShipCost(123.0);
+            order.setTotalCost(246.0);
+        } catch (Exception e){
+            e.printStackTrace();
+
+        }
+
+
+        //校验、保存地址
+
+        //生成订单，支付
+
+        //运输商品
+
+        return order;
     }
 }

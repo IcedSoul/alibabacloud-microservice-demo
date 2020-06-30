@@ -95,7 +95,7 @@ public class AppController {
                            Model model) {
         Order order = orderDAO.checkout(email, streetAddress, zipCode, city, state, creditCardNumber,
                 creditCardExpirationMonth, creditCardCvv, userID);
-
+        model.addAttribute("order", order);
 
         return "checkout.html";
     }
@@ -111,10 +111,10 @@ public class AppController {
     public String viewCart(Model model) {
         List<CartItem> items = cartDAO.viewCart(userID);
         for (CartItem item: items) {
-            Product p = productDAO.getProductById(item.productID);
-            item.productName = p.getName() + item.productName;
-            item.price = p.getPrice();
-            item.productPicture = p.getPicture();
+            Product p = productDAO.getProductById(item.getProductID());
+            item.setProductName(p.getName() + item.getProductName());
+            item.setPrice(p.getPrice());
+            item.setProductPicture(p.getPicture());
         }
         model.addAttribute("items", items);
         return "cart.html";

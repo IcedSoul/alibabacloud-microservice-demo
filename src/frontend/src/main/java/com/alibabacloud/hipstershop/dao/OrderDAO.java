@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class OrderDAO {
 
-    @Reference
+    @Reference(version = "0.0.1")
     private CheckoutService checkoutService;
 
     public Order checkout(String email, String streetAddress, String zipCode, String city, String state,
