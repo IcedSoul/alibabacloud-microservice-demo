@@ -84,7 +84,7 @@ public class AppController {
     }
 
     @PostMapping("/checkout")
-    public String checkout(@RequestParam(name="email") String email,
+    public RedirectView checkout(@RequestParam(name="email") String email,
                            @RequestParam(name="street_address") String streetAddress,
                            @RequestParam(name="zip_code") String zipCode,
                            @RequestParam(name="city") String city,
@@ -93,10 +93,15 @@ public class AppController {
                            @RequestParam(name="credit_card_expiration_month") int creditCardExpirationMonth,
                            @RequestParam(name="credit_card_cvv") String creditCardCvv,
                            Model model) {
-        Order order = orderDAO.checkout(email, streetAddress, zipCode, city, state, creditCardNumber,
+        String orderId = orderDAO.checkout(email, streetAddress, zipCode, city, state, creditCardNumber,
                 creditCardExpirationMonth, creditCardCvv, userID);
-        model.addAttribute("order", order);
+        return new RedirectView("/checkout/" + orderId);
+    }
 
+    @GetMapping("/checkout/{orderId}")
+    public String checkout(@PathVariable(name="orderId") String orderId, Model model){
+        Order order = orderDAO.getOrder(orderId, userID);
+        model.addAttribute("order", order);
         return "checkout.html";
     }
 

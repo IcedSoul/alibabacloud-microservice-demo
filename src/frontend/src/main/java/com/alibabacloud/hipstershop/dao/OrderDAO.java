@@ -15,10 +15,14 @@ public class OrderDAO {
     @Reference(version = "0.0.1")
     private CheckoutService checkoutService;
 
-    public Order checkout(String email, String streetAddress, String zipCode, String city, String state,
+    public String checkout(String email, String streetAddress, String zipCode, String city, String state,
                    String creditCardNumber, int creditCardExpirationMonth, String creditCardCvv, String userId){
         return checkoutService.checkout(email,streetAddress, zipCode, city, state, creditCardNumber,
                 creditCardExpirationMonth, creditCardCvv, userId);
+    }
+
+    public Order getOrder(String orderId, String userId){
+        return checkoutService.getOrder(orderId, userId);
     }
 
 }

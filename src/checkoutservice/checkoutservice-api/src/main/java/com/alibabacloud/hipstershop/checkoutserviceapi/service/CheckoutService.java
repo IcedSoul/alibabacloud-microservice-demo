@@ -34,9 +34,19 @@ public interface CheckoutService {
      * @param creditCardNumber 信用卡号
      * @param creditCardExpirationMonth 信用卡过期月份
      * @param creditCardCvv 信用卡验证码
-     * @param userId 用户ID
-     * @return
+     * @param userId 用户Id
+     * @return 返回orderId
      */
-    Order checkout(String email, String streetAddress, String zipCode, String city, String state,
+    String checkout(String email, String streetAddress, String zipCode, String city, String state,
                    String creditCardNumber, int creditCardExpirationMonth, String creditCardCvv, String userId);
+
+    /**
+     *
+     * 根据userId和orderId获取订单
+     *
+     * @param orderId 订单Id
+     * @param userId 用户Id
+     * @return 订单对象
+     */
+    Order getOrder(String orderId, String userId);
 }

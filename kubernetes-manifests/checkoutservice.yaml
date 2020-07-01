@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cartservice
+  name: checkoutservice
 spec:
   selector:
     matchLabels:
-      app: cartservice
+      app: checkoutservice
   template:
     metadata:
       labels:
-        app: cartservice
+        app: checkoutservice
     spec:
       containers:
-        - name: cartservice
-          image: cartservice:1.0.0-SNAPSHOT
+        - name: checkoutservice
+          image: checkoutservice:1.0.0-SNAPSHOT
           env:
           - name: dubbo.registry.address
             value: "nacos://nacos:8848"

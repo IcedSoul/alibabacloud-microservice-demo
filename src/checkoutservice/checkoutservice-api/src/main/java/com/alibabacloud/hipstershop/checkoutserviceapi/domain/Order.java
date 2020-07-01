@@ -9,6 +9,7 @@ import java.io.Serializable;
 public class Order implements Serializable {
     private String orderId;
     private String shipId;
+    private String userId;
     private Double shipCost;
     private Double productCost;
     private Double totalCost;
@@ -27,6 +28,14 @@ public class Order implements Serializable {
 
     public void setShipId(String shipId) {
         this.shipId = shipId;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public Double getShipCost() {
@@ -56,9 +65,10 @@ public class Order implements Serializable {
     public Order() {
     }
 
-    public Order(String orderId, String shipId, Double shipCost, Double productCost, Double totalCost) {
+    public Order(String orderId, String shipId, String userId, Double shipCost, Double productCost, Double totalCost) {
         this.orderId = orderId;
         this.shipId = shipId;
+        this.userId = userId;
         this.shipCost = shipCost;
         this.productCost = productCost;
         this.totalCost = totalCost;
@@ -69,6 +79,7 @@ public class Order implements Serializable {
         return "Order{" +
                 "orderId='" + orderId + '\'' +
                 ", shipId='" + shipId + '\'' +
+                ", userId='" + userId + '\'' +
                 ", shipCost=" + shipCost +
                 ", productCost=" + productCost +
                 ", totalCost=" + totalCost +
