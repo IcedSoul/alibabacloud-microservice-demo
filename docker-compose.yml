@@ -66,6 +66,7 @@ services:
       - "nacos"
 
   cartservice:
+    build: ./src/cartservice
     image: cartservice:1.0.0-SNAPSHOT
     container_name: cartservice
     environment:
