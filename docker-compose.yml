@@ -10,17 +10,17 @@ services:
     ports:
     - "8848:8848"
 
-  currency-mysql:
-    image: mysql:5.6
-    ports:
-      - 3306
-    command: [
-      --character-set-server=utf8mb4,
-      --collation-server=utf8mb4_unicode_ci
-    ]
-    environment:
-      MYSQL_ROOT_PASSWORD: currencyservice
-      MYSQL_DATABASE: currency
+#  currency-mysql:
+#    image: mysql:5.6
+#    ports:
+#      - 3306
+#    command: [
+#      --character-set-server=utf8mb4,
+#      --collation-server=utf8mb4_unicode_ci
+#    ]
+#    environment:
+#      MYSQL_ROOT_PASSWORD: currencyservice
+#      MYSQL_DATABASE: currency
 
   checkout-mysql:
     image: mysql:5.6
@@ -74,6 +74,7 @@ services:
       - spring.cloud.nacos.config.server-addr=nacos:8848
     depends_on:
       - "nacos"
+      - "cart-redis"
 
   checkoutservice:
     build: ./src/checkoutservice
@@ -85,6 +86,7 @@ services:
     - spring.cloud.nacos.config.server-addr=nacos:8848
     depends_on:
       - "nacos"
+      - "checkout-mysql"
 
   prdoctservice:
     build: ./src/productservice
@@ -96,6 +98,7 @@ services:
     - spring.cloud.nacos.config.server-addr=nacos:8848
     depends_on:
       - "nacos"
+      - "product-mysql"
 
 #  adservice:
 #    build: ./src/adservice

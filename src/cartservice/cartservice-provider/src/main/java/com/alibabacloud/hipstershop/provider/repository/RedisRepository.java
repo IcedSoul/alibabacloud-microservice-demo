@@ -1,7 +1,6 @@
 package com.alibabacloud.hipstershop.provider.repository;
 
 import com.alibabacloud.hipstershop.CartItem;
-import com.alibabacloud.hipstershop.provider.domain.RedisKey;
 import com.alibabacloud.hipstershop.provider.utils.Common;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -39,7 +38,8 @@ public class RedisRepository {
     }
 
     public boolean removeUserCartItems(String userId){
-        redisTemplate.opsForSet().remove(Common.getRedisKey(userId).getKey());
+        //移除购物车商品
+        redisTemplate.delete(Common.getRedisKey(userId).getKey());
         return true;
     }
 
