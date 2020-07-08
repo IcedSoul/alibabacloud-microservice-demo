@@ -2,6 +2,7 @@ package com.alibabacloud.hipstershop.entity;
 
 import com.alibabacloud.hipstershop.domain.Product;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.ArrayList;
@@ -13,7 +14,11 @@ import java.util.List;
  */
 @Entity
 public class ProductInfo {
+    /**
+     * 此处限定id长度为255是因为如果使用的mysql引擎为InnoDB时，索引长度大于191时会出错，设置字符集为UTF8时，长度最大为255
+     */
     @Id
+    @Column(nullable = false, columnDefinition = "varchar(100)")
     private String id;
     private String name;
     private String description;

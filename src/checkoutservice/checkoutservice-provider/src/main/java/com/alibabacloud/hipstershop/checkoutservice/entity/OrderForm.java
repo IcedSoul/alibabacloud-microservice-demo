@@ -6,6 +6,7 @@ import com.alibabacloud.hipstershop.domain.ProductItem;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.List;
@@ -20,6 +21,7 @@ import java.util.List;
 @Entity
 public class OrderForm {
     @Id
+    @Column(nullable = false, columnDefinition = "varchar(100)")
     private String orderId;
     private String shipId;
     private String userId;
