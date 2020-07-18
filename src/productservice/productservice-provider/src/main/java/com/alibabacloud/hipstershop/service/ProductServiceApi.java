@@ -1,5 +1,6 @@
 package com.alibabacloud.hipstershop.service;
 
+import com.alibabacloud.hipstershop.domain.ProductItem;
 import com.alibabacloud.hipstershop.entity.ProductInfo;
 
 import java.util.List;
@@ -22,4 +23,11 @@ public interface ProductServiceApi {
      * @return 所有商品列表
      */
     List<ProductInfo> getAllProduct();
+
+    /**
+     * 确认库存
+     * @param checkoutProductItems 待确认商品列表
+     * @return 返回商品确认列表
+     */
+    List<ProductItem> confirmInventory(String checkoutProductItems);
 }

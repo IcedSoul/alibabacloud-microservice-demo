@@ -25,6 +25,8 @@ public class ProductItem implements Serializable {
         this.lock = lock;
     }
 
+    public ProductItem(){}
+
     public ProductItem(String productId, int quantity, String orderId) {
         this.productId = productId;
         this.quantity = quantity;

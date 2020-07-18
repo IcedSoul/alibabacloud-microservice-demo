@@ -13,6 +13,8 @@ public class CartItem implements Serializable {
     private String productPicture;
     private int price;
 
+    public CartItem(){}
+
     public CartItem(String productID, int quantity) {
         this.productID = productID;
         this.quantity = quantity;

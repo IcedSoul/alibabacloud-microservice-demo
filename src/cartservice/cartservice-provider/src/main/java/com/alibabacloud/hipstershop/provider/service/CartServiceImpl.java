@@ -59,7 +59,7 @@ public class CartServiceImpl implements CartService {
                 newCart.setProductPicture(cartItem.getProductPicture());
                 newCart.setPrice(cartItem.getPrice());
                 newRes.add(newCart);
-                System.out.println(newCart);
+//                System.out.println(newCart);
             }
         }
 
