@@ -1,7 +1,6 @@
 package com.alibabacloud.hipstershop.controller;
 
 import com.alibabacloud.hipstershop.domain.Product;
-import com.alibabacloud.hipstershop.domain.ProductItem;
 import com.alibabacloud.hipstershop.entity.ProductInfo;
 import com.alibabacloud.hipstershop.service.ProductInfoServiceImpl;
 import com.alibabacloud.hipstershop.service.ProductServiceApi;
@@ -29,10 +28,5 @@ public class ProductController {
     @GetMapping("/products")
     public List<Product> getProductList() {
         return productServiceApi.getAllProduct().stream().map(ProductInfo::getProduct).collect(Collectors.toList());
-    }
-
-    @PostMapping("/products/inventory")
-    public List<ProductItem> confirmInventory(@RequestParam(name = "checkoutProductItems") String checkoutProductItems){
-        return productServiceApi.confirmInventory(checkoutProductItems);
     }
 }

@@ -31,19 +31,8 @@ public class CheckoutTestsController {
                                  @RequestParam(name="credit_card_number") String creditCardNumber,
                                  @RequestParam(name="credit_card_expiration_month") int creditCardExpirationMonth,
                                  @RequestParam(name="credit_card_cvv") String creditCardCvv) {
-        return orderDAO.checkout(email, streetAddress, zipCode, city, state, creditCardNumber,
+        String orderId = orderDAO.checkout(email, streetAddress, zipCode, city, state, creditCardNumber,
                 creditCardExpirationMonth, creditCardCvv, userID);
-    }
-
-    @PostMapping("/checkout_http_test")
-    public String checkoutHttp(@RequestParam(name="email") String email,
-                           @RequestParam(name="street_address") String streetAddress,
-                           @RequestParam(name="zip_code") String zipCode,
-                           @RequestParam(name="city") String city,
-                           @RequestParam(name="state") String state,
-                           @RequestParam(name="credit_card_number") String creditCardNumber,
-                           @RequestParam(name="credit_card_expiration_month") int creditCardExpirationMonth,
-                           @RequestParam(name="credit_card_cvv") String creditCardCvv) {
-        return orderDAO.checkout_test(userID);
+        return orderId;
     }
 }

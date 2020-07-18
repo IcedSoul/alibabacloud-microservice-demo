@@ -28,6 +28,7 @@ public class RedisRepository {
                     .filter(cartItem1 -> cartItem1.equals(cartItem)).findFirst().orElse(null);
             Objects.requireNonNull(cartItem)
                     .setQuantity(Objects.requireNonNull(cartItem2).getQuantity() + cartItem.getQuantity());
+            redisTemplate.delete(key);
         }
         redisTemplate.opsForSet().add(key, cartItem);
         return true;
