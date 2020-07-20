@@ -9,6 +9,7 @@
     <version>1.0.0-SNAPSHOT</version>
     <modules>
         <module>src/cartservice</module>
+        <module>src/cartservice2</module>
         <module>src/productservice</module>
         <module>src/frontend</module>
         <module>src/paymentservice</module>

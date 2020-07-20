@@ -8,9 +8,9 @@ spec:
       app: productservice
   template:
     metadata:
-#      annotations:
-#        armsPilotAutoEnable: "on"
-#        armsPilotCreateAppName: "productservice"
+      #      annotations:
+      #        armsPilotAutoEnable: "on"
+      #        armsPilotCreateAppName: "productservice"
       labels:
         app: productservice
         version: 1.0.0-SNAPSHOT
@@ -42,9 +42,9 @@ spec:
       app: cartservice
   template:
     metadata:
-#      annotations:
-#        armsPilotAutoEnable: "on"
-#        armsPilotCreateAppName: "cartservice"
+      #      annotations:
+      #        armsPilotAutoEnable: "on"
+      #        armsPilotCreateAppName: "cartservice"
       labels:
         app: cartservice
     spec:
@@ -76,9 +76,9 @@ spec:
       app: checkoutservice
   template:
     metadata:
-#      annotations:
-#        armsPilotAutoEnable: "on"
-#        armsPilotCreateAppName: "checkoutservice"
+      #      annotations:
+      #        armsPilotAutoEnable: "on"
+      #        armsPilotCreateAppName: "checkoutservice"
       labels:
         app: checkoutservice
     spec:
@@ -110,9 +110,9 @@ spec:
       app: frontend
   template:
     metadata:
-#      annotations:
-#        armsPilotAutoEnable: "on"
-#        armsPilotCreateAppName: "frontend"
+      #      annotations:
+      #        armsPilotAutoEnable: "on"
+      #        armsPilotCreateAppName: "frontend"
       labels:
         app: frontend
     spec:

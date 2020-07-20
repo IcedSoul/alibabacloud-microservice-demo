@@ -1,6 +1,6 @@
 package com.alibabacloud.hipstershop.dao;
 
-import com.alibabacloud.hipstershop.domain.Product;
+import com.alibabacloud.hipstershop.cartserviceinterface.domain.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Service;

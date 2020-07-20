@@ -9,10 +9,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class JsonUtils {
     public static ObjectMapper objectMapper = new ObjectMapper();
 
-    public static String getJsonString(Object obj){
+    public static String getJsonString(Object obj) {
         try {
             return objectMapper.writeValueAsString(obj);
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return "";
         }

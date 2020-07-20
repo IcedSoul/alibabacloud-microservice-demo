@@ -1,7 +1,7 @@
 package com.alibabacloud.hipstershop.checkoutservice.dao;
 
-import com.alibabacloud.hipstershop.CartItem;
-import com.alibabacloud.hipstershop.CartService;
+import com.alibabacloud.hipstershop.cartserviceinterface.domain.CartItem;
+import com.alibabacloud.hipstershop.cartserviceinterface.service.CartService;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ public class CartDao {
     @Reference(version = "1.0.0")
     private CartService cartService;
 
-    public List<CartItem> cleanCartItems(String userId){
+    public List<CartItem> cleanCartItems(String userId) {
         return cartService.cleanCartItems(userId);
     }
 }

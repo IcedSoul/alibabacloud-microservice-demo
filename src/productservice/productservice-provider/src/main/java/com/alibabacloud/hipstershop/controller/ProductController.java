@@ -1,15 +1,11 @@
 package com.alibabacloud.hipstershop.controller;
 
-import com.alibabacloud.hipstershop.domain.Product;
+import com.alibabacloud.hipstershop.cartserviceinterface.domain.Product;
 import com.alibabacloud.hipstershop.entity.ProductInfo;
-import com.alibabacloud.hipstershop.service.ProductInfoServiceImpl;
 import com.alibabacloud.hipstershop.service.ProductServiceApi;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 

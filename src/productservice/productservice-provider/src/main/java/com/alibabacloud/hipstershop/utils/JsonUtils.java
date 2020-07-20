@@ -1,6 +1,6 @@
 package com.alibabacloud.hipstershop.utils;
 
-import com.alibabacloud.hipstershop.domain.ProductItem;
+import com.alibabacloud.hipstershop.cartserviceinterface.domain.ProductItem;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,18 +15,19 @@ import java.util.List;
 public class JsonUtils {
     public static ObjectMapper objectMapper = new ObjectMapper();
 
-    public static String getJsonString(Object obj){
+    public static String getJsonString(Object obj) {
         try {
             return objectMapper.writeValueAsString(obj);
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return "";
         }
     }
 
-    public static List<ProductItem> getObjectList(String json){
+    public static List<ProductItem> getObjectList(String json) {
         try {
-            return objectMapper.readValue(json, new TypeReference<List<ProductItem>>(){});
+            return objectMapper.readValue(json, new TypeReference<List<ProductItem>>() {
+            });
         } catch (JsonProcessingException e) {
             e.printStackTrace();
             return new ArrayList<>();

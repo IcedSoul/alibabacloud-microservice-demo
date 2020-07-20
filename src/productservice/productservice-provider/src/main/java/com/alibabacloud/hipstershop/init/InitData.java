@@ -1,6 +1,6 @@
 package com.alibabacloud.hipstershop.init;
 
-import com.alibabacloud.hipstershop.domain.Product;
+import com.alibabacloud.hipstershop.cartserviceinterface.domain.Product;
 import com.alibabacloud.hipstershop.entity.ProductInfo;
 import com.alibabacloud.hipstershop.repository.ProductInfoRepository;
 import org.springframework.boot.ApplicationArguments;
@@ -80,7 +80,7 @@ public class InitData implements ApplicationRunner {
         productInfoList.add(new ProductInfo(p6));
         try {
             productInfoRepository.saveAll(productInfoList);
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

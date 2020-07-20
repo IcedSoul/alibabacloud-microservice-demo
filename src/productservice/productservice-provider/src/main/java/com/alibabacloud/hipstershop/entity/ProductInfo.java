@@ -1,6 +1,6 @@
 package com.alibabacloud.hipstershop.entity;
 
-import com.alibabacloud.hipstershop.domain.Product;
+import com.alibabacloud.hipstershop.cartserviceinterface.domain.Product;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,9 +28,10 @@ public class ProductInfo {
     @Column(nullable = false, columnDefinition = "varchar(2000)")
     private String categories;
 
-    public ProductInfo(){}
+    public ProductInfo() {
+    }
 
-    public ProductInfo(Product product){
+    public ProductInfo(Product product) {
         this.id = product.getId();
         this.name = product.getName();
         this.description = product.getDescription();
@@ -41,7 +42,7 @@ public class ProductInfo {
         this.categories = sb.toString();
     }
 
-    public Product getProduct(){
+    public Product getProduct() {
         Product product = new Product();
         product.setId(id);
         product.setName(name);
@@ -50,8 +51,8 @@ public class ProductInfo {
         product.setPrice(price);
         String[] tags = categories.split(",");
         List<String> strings = new ArrayList<>();
-        for(String s : tags){
-            if(!("").equals(s)){
+        for (String s : tags) {
+            if (!("").equals(s)) {
                 strings.add(s);
             }
         }

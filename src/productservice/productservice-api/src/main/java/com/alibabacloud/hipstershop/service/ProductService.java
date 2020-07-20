@@ -1,6 +1,6 @@
 package com.alibabacloud.hipstershop.service;
 
-import com.alibabacloud.hipstershop.domain.ProductItem;
+import com.alibabacloud.hipstershop.cartserviceinterface.domain.ProductItem;
 
 import java.util.List;
 
@@ -10,11 +10,10 @@ import java.util.List;
  */
 public interface ProductService {
     /**
-     *
      * 校验库存是否足够，如果足够则扣除商品。
      * 每一个ProductItem代表一个购买的商品的库存，每个商品的校验结果用ProductItem.lock表示，lock为true代表库存足够，已扣除。
      * 目前没有添加库存属性和校验功能，走个形式，所有商品都有足够库存。
-     *
+     * <p>
      * 待改进：
      * 1. 商品目前是硬编码实现，后续考虑使用数据库。
      * 2. 商品服务和库存服务分开。

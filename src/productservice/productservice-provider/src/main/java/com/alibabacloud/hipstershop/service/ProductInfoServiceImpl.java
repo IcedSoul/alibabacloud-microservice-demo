@@ -10,11 +10,12 @@ import java.util.Optional;
 
 /**
  * 对内的product service实现类。
+ *
  * @author xiaofeng.gxf
  * @date 2020/7/8
  */
 @Service
-public class ProductInfoServiceImpl implements ProductServiceApi{
+public class ProductInfoServiceImpl implements ProductServiceApi {
 
     @Resource
     ProductInfoRepository productInfoRepository;
