@@ -1,6 +1,6 @@
 package com.alibabacloud.hipstershop.service;
 
-import com.alibabacloud.hipstershop.cartserviceinterface.domain.ProductItem;
+import com.alibabacloud.hipstershop.domain.ProductItem;
 
 import java.util.List;
 

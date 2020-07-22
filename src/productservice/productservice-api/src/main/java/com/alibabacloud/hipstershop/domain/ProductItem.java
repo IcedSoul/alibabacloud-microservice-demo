@@ -1,4 +1,4 @@
-package com.alibabacloud.hipstershop.cartserviceinterface.domain;
+package com.alibabacloud.hipstershop.domain;
 
 import java.io.Serializable;
 

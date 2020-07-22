@@ -1,6 +1,6 @@
 package com.alibabacloud.hipstershop.checkoutservice.dao;
 
-import com.alibabacloud.hipstershop.cartserviceinterface.domain.ProductItem;
+import com.alibabacloud.hipstershop.domain.ProductItem;
 import com.alibabacloud.hipstershop.service.ProductService;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.stereotype.Service;

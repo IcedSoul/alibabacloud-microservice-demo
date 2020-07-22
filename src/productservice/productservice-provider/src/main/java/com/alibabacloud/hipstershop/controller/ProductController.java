@@ -1,6 +1,6 @@
 package com.alibabacloud.hipstershop.controller;
 
-import com.alibabacloud.hipstershop.cartserviceinterface.domain.Product;
+import com.alibabacloud.hipstershop.domain.Product;
 import com.alibabacloud.hipstershop.entity.ProductInfo;
 import com.alibabacloud.hipstershop.service.ProductServiceApi;
 import org.springframework.web.bind.annotation.*;

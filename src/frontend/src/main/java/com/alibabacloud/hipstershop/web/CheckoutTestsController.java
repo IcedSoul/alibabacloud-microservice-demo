@@ -1,14 +1,15 @@
 package com.alibabacloud.hipstershop.web;
 
+import com.alibabacloud.hipstershop.common.CommonUtil;
 import com.alibabacloud.hipstershop.dao.OrderDAO;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.view.RedirectView;
 
 import javax.annotation.Resource;
+import java.net.UnknownHostException;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author xiaofeng.gxf
@@ -20,6 +21,9 @@ public class CheckoutTestsController {
     @Resource
     private OrderDAO orderDAO;
 
+    private static boolean exception = false;
+    private static Set<String> exceptionIp = new HashSet<>();
+
     private String userID = "Test User";
 
     @PostMapping("/checkout_test")
@@ -30,9 +34,30 @@ public class CheckoutTestsController {
                            @RequestParam(name = "state") String state,
                            @RequestParam(name = "credit_card_number") String creditCardNumber,
                            @RequestParam(name = "credit_card_expiration_month") int creditCardExpirationMonth,
-                           @RequestParam(name = "credit_card_cvv") String creditCardCvv) {
+                           @RequestParam(name = "credit_card_cvv") String creditCardCvv) throws UnknownHostException {
+        if(exception){
+            String ip = CommonUtil.getLocalIp();
+            if(exceptionIp.contains(ip)) {
+                throw new RuntimeException();
+            }
+        }
         String orderId = orderDAO.checkout(email, streetAddress, zipCode, city, state, creditCardNumber,
                 creditCardExpirationMonth, creditCardCvv, userID);
         return orderId;
+    }
+
+    @PostMapping("/exception_checkout")
+    public String checkoutException(@RequestParam("ip")String ip, @RequestParam("type")Integer type) {
+        if(type == 1){
+            exception = true;
+            exceptionIp.add(ip);
+        }
+        else{
+            exception = false;
+            if(!"".equals(ip)){
+                exceptionIp.remove(ip);
+            }
+        }
+        return "success";
     }
 }

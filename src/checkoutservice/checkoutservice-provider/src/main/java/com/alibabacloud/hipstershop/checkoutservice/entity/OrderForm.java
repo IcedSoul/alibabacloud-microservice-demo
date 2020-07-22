@@ -2,7 +2,7 @@ package com.alibabacloud.hipstershop.checkoutservice.entity;
 
 import com.alibabacloud.hipstershop.checkoutservice.utils.JsonUtils;
 import com.alibabacloud.hipstershop.checkoutserviceapi.domain.Order;
-import com.alibabacloud.hipstershop.cartserviceinterface.domain.ProductItem;
+import com.alibabacloud.hipstershop.domain.ProductItem;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 

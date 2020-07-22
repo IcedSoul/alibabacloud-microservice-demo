@@ -5,7 +5,7 @@ import com.alibabacloud.hipstershop.checkoutserviceapi.domain.Order;
 import com.alibabacloud.hipstershop.dao.CartDAO;
 import com.alibabacloud.hipstershop.dao.OrderDAO;
 import com.alibabacloud.hipstershop.dao.ProductDAO;
-import com.alibabacloud.hipstershop.cartserviceinterface.domain.Product;
+import com.alibabacloud.hipstershop.domain.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

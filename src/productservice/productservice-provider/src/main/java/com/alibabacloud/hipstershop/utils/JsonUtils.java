@@ -1,6 +1,6 @@
 package com.alibabacloud.hipstershop.utils;
 
-import com.alibabacloud.hipstershop.cartserviceinterface.domain.ProductItem;
+import com.alibabacloud.hipstershop.domain.ProductItem;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

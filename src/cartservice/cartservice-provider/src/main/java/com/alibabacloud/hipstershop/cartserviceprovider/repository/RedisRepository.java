@@ -44,4 +44,8 @@ public class RedisRepository {
         return true;
     }
 
+    public void warmUp(){
+        redisTemplate.randomKey();
+    }
+
 }

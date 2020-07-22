@@ -1,6 +1,6 @@
 package com.alibabacloud.hipstershop.init;
 
-import com.alibabacloud.hipstershop.cartserviceinterface.domain.Product;
+import com.alibabacloud.hipstershop.domain.Product;
 import com.alibabacloud.hipstershop.entity.ProductInfo;
 import com.alibabacloud.hipstershop.repository.ProductInfoRepository;
 import org.springframework.boot.ApplicationArguments;

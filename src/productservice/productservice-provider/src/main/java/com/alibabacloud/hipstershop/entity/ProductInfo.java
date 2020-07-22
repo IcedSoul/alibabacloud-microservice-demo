@@ -1,6 +1,6 @@
 package com.alibabacloud.hipstershop.entity;
 
-import com.alibabacloud.hipstershop.cartserviceinterface.domain.Product;
+import com.alibabacloud.hipstershop.domain.Product;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
