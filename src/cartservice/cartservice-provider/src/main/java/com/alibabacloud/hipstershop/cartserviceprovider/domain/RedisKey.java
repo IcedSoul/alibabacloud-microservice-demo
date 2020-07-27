@@ -12,7 +12,7 @@ public class RedisKey {
     public String getKey() {
         StringBuffer sb = new StringBuffer();
         keys.forEach(key -> sb.append(key).append(":"));
-        sb.delete(sb.length() - 2, sb.length() - 1);
+        sb.delete(sb.length() - 1, sb.length());
         return sb.toString();
     }
 

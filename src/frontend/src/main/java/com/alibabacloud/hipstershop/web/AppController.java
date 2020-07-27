@@ -1,6 +1,6 @@
 package com.alibabacloud.hipstershop.web;
 
-import com.alibabacloud.hipstershop.cartserviceinterface.domain.CartItem;
+import com.alibabacloud.hipstershop.cartserviceapi.domain.CartItem;
 import com.alibabacloud.hipstershop.checkoutserviceapi.domain.Order;
 import com.alibabacloud.hipstershop.dao.CartDAO;
 import com.alibabacloud.hipstershop.dao.OrderDAO;

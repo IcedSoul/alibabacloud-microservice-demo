@@ -1,5 +1,6 @@
 package com.alibabacloud.hipstershop.cartserviceprovider.init;
 
+import com.alibaba.csp.sentinel.init.InitExecutor;
 import com.alibabacloud.hipstershop.cartserviceprovider.repository.RedisRepository;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -21,6 +22,7 @@ public class WarmUp implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+        InitExecutor.doInit();
         redisRepository.warmUp();
     }
 }

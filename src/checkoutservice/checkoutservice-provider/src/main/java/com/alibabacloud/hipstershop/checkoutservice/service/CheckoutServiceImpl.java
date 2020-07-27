@@ -1,13 +1,13 @@
 package com.alibabacloud.hipstershop.checkoutservice.service;
 
-import com.alibabacloud.hipstershop.cartserviceinterface.domain.CartItem;
+import com.alibabacloud.hipstershop.cartserviceapi.domain.CartItem;
 import com.alibabacloud.hipstershop.checkoutservice.dao.CartDao;
 import com.alibabacloud.hipstershop.checkoutservice.dao.ProductDao;
 import com.alibabacloud.hipstershop.checkoutservice.entity.OrderForm;
 import com.alibabacloud.hipstershop.checkoutservice.repository.OrderFormRepository;
 import com.alibabacloud.hipstershop.checkoutserviceapi.domain.Order;
 import com.alibabacloud.hipstershop.checkoutserviceapi.service.CheckoutService;
-import com.alibabacloud.hipstershop.domain.ProductItem;
+import com.alibabacloud.hipstershop.productserviceapi.domain.ProductItem;
 import org.apache.dubbo.config.annotation.Service;
 import org.apache.dubbo.config.spring.context.annotation.DubboComponentScan;
 import org.slf4j.Logger;
@@ -46,7 +46,6 @@ public class CheckoutServiceImpl implements CheckoutService {
     @Override
     public String checkout(String email, String streetAddress, String zipCode, String city, String state,
                            String creditCardNumber, int creditCardExpirationMonth, String creditCardCvv, String userId) {
-//        long a = System.nanoTime();
         Order order = null;
 //        try {
         //生成uuid
@@ -56,9 +55,7 @@ public class CheckoutServiceImpl implements CheckoutService {
         order.setUserId(userId);
 
         //获取购物车商品
-//        long b = System.nanoTime();
         List<CartItem> items = cartDao.cleanCartItems(userId);
-//        long c = System.nanoTime();
 
         List<ProductItem> productItems = new ArrayList<>();
         for (CartItem item : items) {
@@ -66,9 +63,7 @@ public class CheckoutServiceImpl implements CheckoutService {
         }
 
         //校验库存
-//        long d = System.nanoTime();
         List<ProductItem> lockedProductItems = productDao.confirmInventory(productItems);
-//        long e = System.nanoTime();
         //保存商品列表
 
         order.setProductItemList(productItems);
@@ -106,11 +101,6 @@ public class CheckoutServiceImpl implements CheckoutService {
 //            return "";
 //        }
         orderFormRepository.save(new OrderForm(order));
-        long f = System.nanoTime();
-//        double c1 = (c - b) / 1000000.0;
-//        double c2 = (e - d) / 1000000.0;
-//        double c3 = (f - a) / 1000000.0 - c1 - c2;
-//        logger.info("Time cost: checkout: " +  c3 + ", cart: " + c1 + ", product: " + c2);
         return order.getOrderId();
     }
 

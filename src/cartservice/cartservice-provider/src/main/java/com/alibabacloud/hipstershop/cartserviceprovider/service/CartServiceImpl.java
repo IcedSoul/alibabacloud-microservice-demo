@@ -1,9 +1,9 @@
 package com.alibabacloud.hipstershop.cartserviceprovider.service;
 
-import com.alibabacloud.hipstershop.cartserviceinterface.domain.CartItem;
+import com.alibabacloud.hipstershop.cartserviceapi.domain.CartItem;
 import com.alibabacloud.hipstershop.cartserviceprovider.repository.RedisRepository;
 import org.apache.dubbo.config.annotation.Service;
-import com.alibabacloud.hipstershop.cartserviceinterface.service.CartService;
+import com.alibabacloud.hipstershop.cartserviceapi.service.CartService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -66,12 +66,8 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public List<CartItem> cleanCartItems(String userId) {
-//        long a = System.nanoTime();
         List<CartItem> items = viewCart(userId);
         redisRepository.removeUserCartItems(userId);
-//        long b = System.nanoTime();
-//        double c1 = (b - a) / 1000000.0;
-//        logger.info("Cost: " + c1);
         return items;
     }
 

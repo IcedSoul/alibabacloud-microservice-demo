@@ -1,6 +1,6 @@
 package com.alibabacloud.hipstershop.cartserviceprovider.repository;
 
-import com.alibabacloud.hipstershop.cartserviceinterface.domain.CartItem;
+import com.alibabacloud.hipstershop.cartserviceapi.domain.CartItem;
 import com.alibabacloud.hipstershop.cartserviceprovider.utils.Common;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;

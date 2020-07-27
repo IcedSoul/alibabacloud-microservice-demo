@@ -1,7 +1,10 @@
 package com.alibabacloud.hipstershop.checkoutservice.init;
 
+import com.alibaba.csp.sentinel.init.InitExecutor;
+import com.alibabacloud.hipstershop.checkoutservice.entity.OrderForm;
 import com.alibabacloud.hipstershop.checkoutservice.repository.OrderFormRepository;
 import com.alibabacloud.hipstershop.checkoutservice.service.CheckoutServiceImpl;
+import com.alibabacloud.hipstershop.checkoutserviceapi.domain.Order;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.ApplicationArguments;
@@ -9,6 +12,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.UUID;
 
 /**
  *
@@ -32,8 +36,11 @@ public class WarmUp implements ApplicationRunner {
      */
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        logger.info("Record Count: " + orderFormRepository.count());
-        orderFormRepository.deleteAll();;
+        InitExecutor.doInit();
+        Order order = new Order();
+        UUID uuid = UUID.randomUUID();
+        order.setOrderId(uuid.toString());
+        orderFormRepository.save(new OrderForm(order));;
         logger.info("Clear.");
     }
 }

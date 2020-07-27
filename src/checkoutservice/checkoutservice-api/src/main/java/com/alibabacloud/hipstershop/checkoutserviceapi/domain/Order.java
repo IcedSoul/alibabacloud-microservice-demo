@@ -1,6 +1,6 @@
 package com.alibabacloud.hipstershop.checkoutserviceapi.domain;
 
-import com.alibabacloud.hipstershop.domain.ProductItem;
+import com.alibabacloud.hipstershop.productserviceapi.domain.ProductItem;
 
 import java.io.Serializable;
 import java.util.List;
